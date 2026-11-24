@@ -14,6 +14,8 @@ ENTRY = (
 
 
 def main():
+    if not ENTRY.strip() or len(ENTRY) > 200:
+        raise ValueError("entry must be 1-200 non-blank characters")
     os.makedirs("/output", exist_ok=True)
     with open("/output/entry.txt", "w", encoding="utf-8") as f:
         f.write(ENTRY)
